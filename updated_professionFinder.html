@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мамандық таңдаушы</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            background: linear-gradient(to right, #e0f7fa, #fce4ec);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        input, button {
+            padding: 12px;
+            margin-top: 10px;
+            width: 350px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #732d91;
+        }
+        #result {
+            margin-top: 25px;
+            font-weight: bold;
+            color: #2e7d32;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Қызығушылығыңызға сай мамандықты анықта!</h1>
+    <input type="text" id="userInput" placeholder="Мысалы: музыка, технология, сурет салу, жануарлар...">
+    <br>
+    <button onclick="getProfession()">Мамандықты анықтау</button>
+
+    <p id="result"></p>
+
+    <script>
+        function getProfession() {
+            const userInput = document.getElementById("userInput").value.trim().toLowerCase();
+            let profession = "";
+
+            if (userInput === "") {
+                profession = "Қолданушы енгізген мәлімет жоқ. Қайтадан жазыңыз!";
+            } else {
+                if (userInput.includes("музыка") || userInput.includes("ән")) {
+                    profession = "Сенің арманың бойынша мамандық: Музыкант, Композитор, Әнші, Дыбыс режиссері";
+                } else if (userInput.includes("компьютер") || userInput.includes("технология") || userInput.includes("бағдарламалау") || userInput.includes("it")) {
+                    profession = "Сенің арманың бойынша мамандық: Бағдарламашы, Веб-дамыту маманы, IT маманы, Киберқауіпсіздік сарапшысы";
+                } else if (userInput.includes("медицина") || userInput.includes("дәрігер") || userInput.includes("денсаулық")) {
+                    profession = "Сенің арманың бойынша мамандық: Дәрігер, Хирург, Мейірбике, Психолог, Фармацевт";
+                } else if (userInput.includes("сурет") || userInput.includes("өнер") || userInput.includes("дизайн")) {
+                    profession = "Сенің арманың бойынша мамандық: Суретші, Графикалық дизайнер, Иллюстратор, Анимация маманы";
+                } else if (userInput.includes("жануар") || userInput.includes("ветеринар")) {
+                    profession = "Сенің арманың бойынша мамандық: Ветеринар, Зоолог, Мал дәрігері";
+                } else if (userInput.includes("оқу") || userInput.includes("білім") || userInput.includes("мұғалім") || userInput.includes("оқытушы")) {
+                    profession = "Сенің арманың бойынша мамандық: Мұғалім, Университет оқытушысы, Тәрбиеші, Ғалым";
+                } else if (userInput.includes("спорт") || userInput.includes("футбол") || userInput.includes("дене")) {
+                    profession = "Сенің арманың бойынша мамандық: Спортшы, Дене шынықтыру мұғалімі, Жаттықтырушы";
+                } else if (userInput.includes("жазу") || userInput.includes("әдебиет") || userInput.includes("ақын")) {
+                    profession = "Сенің арманың бойынша мамандық: Жазушы, Ақын, Сценарист, Редактор";
+                } else if (userInput.includes("бизнес") || userInput.includes("кәсіп") || userInput.includes("кәсіпкер")) {
+                    profession = "Сенің арманың бойынша мамандық: Кәсіпкер, Менеджер, Маркетолог, Экономист";
+                } else if (userInput.includes("саяхат") || userInput.includes("география") || userInput.includes("елдер")) {
+                    profession = "Сенің арманың бойынша мамандық: Туризм менеджері, Гид, Географ";
+                } else {
+                    profession = "Қызығушылығыңыз ерекше екен! Сізге арналған мамандықты әлі ешкім ойлап таппаған болуы мүмкін!";
+                }
+            }
+
+            document.getElementById("result").innerText = profession;
+        }
+    </script>
+
+</body>
+</html>
