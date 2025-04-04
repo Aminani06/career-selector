@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Мамандық таңдаушы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #fce4ec);
+            padding: 40px;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        input, button {
+            padding: 12px;
+            margin-top: 10px;
+            width: 350px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #732d91;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Қызығушылығыңызға сай мамандықты анықта!</h1>
+    <input type="text" id="userInput" placeholder="Мысалы: музыка, технология, сурет салу, жануарлар">
+    <br>
+    <button onclick="getProfession()">Мамандықты анықтау</button>
+
+    <p id="result"></p>
+
+    <script>
+        function getProfession() {
+            const input = document.getElementById("userInput").value.toLowerCase().trim();
+            let result = "";
+
+            if (!input) {
+                result = "Қолданушы енгізген мәлімет жоқ. Қайтадан жазыңыз!";
+            } else if (input.includes("музыка") || input.includes("ән")) {
+                result = "Музыкант, Әнші, Композитор, Дыбыс режиссері";
+            } else if (input.includes("компьютер") || input.includes("технология") || input.includes("it") || input.includes("бағдарламалау")) {
+                result = "Бағдарламашы, Веб-әзірлеуші, IT маманы, Киберқауіпсіздік маманы";
+            } else if (input.includes("медицина") || input.includes("дәрігер") || input.includes("денсаулық")) {
+                result = "Дәрігер, Хирург, Мейірбике, Психолог";
+            } else if (input.includes("сурет") || input.includes("өнер") || input.includes("дизайн")) {
+                result = "Суретші, Дизайнер, Иллюстратор, Анимация маманы";
+            } else if (input.includes("жануар") || input.includes("ветеринар")) {
+                result = "Ветеринар, Зоолог";
+            } else if (input.includes("оқу") || input.includes("білім") || input.includes("мұғалім") || input.includes("оқытушы")) {
+                result = "Мұғалім, Ғалым, Тәрбиеші";
+            } else if (input.includes("спорт") || input.includes("жаттығу")) {
+                result = "Спортшы, Жаттықтырушы, Дене шынықтыру мұғалімі";
+            } else if (input.includes("жазу") || input.includes("әдебиет") || input.includes("ақын")) {
+                result = "Жазушы, Ақын, Сценарист";
+            } else if (input.includes("бизнес") || input.includes("кәсіп")) {
+                result = "Кәсіпкер, Менеджер, Маркетолог, Экономист";
+            } else if (input.includes("саяхат") || input.includes("география")) {
+                result = "Гид, Туризм менеджері, Географ";
+            } else {
+                result = "Қызығушылығыңыз ерекше екен! Бұл бағытта да болашақта үлкен мамандықтар ашылады!";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
